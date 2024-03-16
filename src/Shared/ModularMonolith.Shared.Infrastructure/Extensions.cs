@@ -3,6 +3,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using ModularMonolith.Shared.Abstractions.Time;
+using ModularMonolith.Shared.Infrastructure.Commands;
+using ModularMonolith.Shared.Infrastructure.Queries;
 using ModularMonolith.Shared.Infrastructure.Time;
 
 namespace ModularMonolith.Shared.Infrastructure;
@@ -22,12 +24,16 @@ public static class Extensions
         services.AddSwaggerGen(swagger =>
         {
             swagger.CustomSchemaIds(x => x.FullName);
-            swagger.SwaggerDoc("v1", new OpenApiInfo()
+            swagger.SwaggerDoc("v1", new OpenApiInfo
             {
                 Title = "ModularMonolith API",
                 Version = "v1"
             });
         });
+        
+        services
+            .AddCommands()
+            .AddQueries();
 
         return services;
     }
