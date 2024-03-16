@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1739FD5C-072A-4A14-8D05-364E2F5C2D7F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{334B9B43-19CA-4DC2-8D34-1B88D3D62BDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bootstrapper", "Bootstrapper", "{7D6BC5D6-79BE-49F8-96A4-C073289A655E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{3027F201-E995-47CA-8E7C-9B60E1D34602}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{FC346667-784F-4BC2-A9B6-11CF30D897B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolith.Shared.Abstractions", "src\Shared\ModularMonolith.Shared.Abstractions\ModularMonolith.Shared.Abstractions.csproj", "{9658DAB5-A834-4F4B-B6C5-F51599C0307E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolith.Shared.Infrastructure", "src\Shared\ModularMonolith.Shared.Infrastructure\ModularMonolith.Shared.Infrastructure.csproj", "{046E07AA-B129-4D55-8EEA-EF7606AE5BF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModularMonolith.Bootstrapper", "src\Bootstrapper\ModularMonolith.Bootstrapper\ModularMonolith.Bootstrapper.csproj", "{7BD5877E-60AF-4E90-8256-91B3C86D06BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7D6BC5D6-79BE-49F8-96A4-C073289A655E} = {1739FD5C-072A-4A14-8D05-364E2F5C2D7F}
+		{3027F201-E995-47CA-8E7C-9B60E1D34602} = {1739FD5C-072A-4A14-8D05-364E2F5C2D7F}
+		{FC346667-784F-4BC2-A9B6-11CF30D897B4} = {1739FD5C-072A-4A14-8D05-364E2F5C2D7F}
+		{9658DAB5-A834-4F4B-B6C5-F51599C0307E} = {FC346667-784F-4BC2-A9B6-11CF30D897B4}
+		{046E07AA-B129-4D55-8EEA-EF7606AE5BF0} = {FC346667-784F-4BC2-A9B6-11CF30D897B4}
+		{7BD5877E-60AF-4E90-8256-91B3C86D06BF} = {7D6BC5D6-79BE-49F8-96A4-C073289A655E}
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9658DAB5-A834-4F4B-B6C5-F51599C0307E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9658DAB5-A834-4F4B-B6C5-F51599C0307E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9658DAB5-A834-4F4B-B6C5-F51599C0307E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9658DAB5-A834-4F4B-B6C5-F51599C0307E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{046E07AA-B129-4D55-8EEA-EF7606AE5BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{046E07AA-B129-4D55-8EEA-EF7606AE5BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{046E07AA-B129-4D55-8EEA-EF7606AE5BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{046E07AA-B129-4D55-8EEA-EF7606AE5BF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BD5877E-60AF-4E90-8256-91B3C86D06BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BD5877E-60AF-4E90-8256-91B3C86D06BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BD5877E-60AF-4E90-8256-91B3C86D06BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BD5877E-60AF-4E90-8256-91B3C86D06BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
