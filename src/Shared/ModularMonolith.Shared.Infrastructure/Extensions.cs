@@ -2,6 +2,8 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using ModularMonolith.Shared.Abstractions.Time;
+using ModularMonolith.Shared.Infrastructure.Time;
 
 namespace ModularMonolith.Shared.Infrastructure;
 
@@ -14,6 +16,8 @@ public static class Extensions
         services.AddHttpContextAccessor();
 
         services.AddControllers();
+        
+        services.AddSingleton<IClock, UtcClock>();
         
         services.AddSwaggerGen(swagger =>
         {

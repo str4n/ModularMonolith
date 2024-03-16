@@ -1,7 +1,10 @@
 using ModularMonolith.Bootstrapper;
 using ModularMonolith.Shared.Infrastructure;
+using ModularMonolith.Shared.Infrastructure.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseLogging();
 
 // Load modules here
 // ModuleLoader.Load<SampleModule>();
