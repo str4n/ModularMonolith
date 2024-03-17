@@ -17,4 +17,6 @@ var app = builder.Build();
 
 app.UseModules();
 
+app.UseInfrastructure();
+
 app.Run();

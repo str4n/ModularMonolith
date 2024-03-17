@@ -8,6 +8,7 @@ using ModularMonolith.Shared.Infrastructure.Events;
 using ModularMonolith.Shared.Infrastructure.Exceptions;
 using ModularMonolith.Shared.Infrastructure.Postgres;
 using ModularMonolith.Shared.Infrastructure.Queries;
+using ModularMonolith.Shared.Infrastructure.Services;
 using ModularMonolith.Shared.Infrastructure.Time;
 
 namespace ModularMonolith.Shared.Infrastructure;
@@ -25,6 +26,8 @@ public static class Extensions
         services.AddHttpContextAccessor();
 
         services.AddControllers();
+
+        services.AddInitializers();
         
         services.AddSingleton<IClock, UtcClock>();
         
@@ -65,6 +68,8 @@ public static class Extensions
         app.UseRouting();
 
         app.UseAuthorization();
+        
+        app.MapControllers();
 
         return app;
     }
