@@ -6,6 +6,7 @@ using ModularMonolith.Shared.Abstractions.Time;
 using ModularMonolith.Shared.Infrastructure.Commands;
 using ModularMonolith.Shared.Infrastructure.Events;
 using ModularMonolith.Shared.Infrastructure.Exceptions;
+using ModularMonolith.Shared.Infrastructure.Postgres;
 using ModularMonolith.Shared.Infrastructure.Queries;
 using ModularMonolith.Shared.Infrastructure.Time;
 
@@ -16,6 +17,8 @@ public static class Extensions
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddExceptionHandling();
+
+        services.ConfigurePostgres(configuration);
         
         services.AddEndpointsApiExplorer();
 
