@@ -5,6 +5,7 @@ using Microsoft.OpenApi.Models;
 using ModularMonolith.Shared.Abstractions.Time;
 using ModularMonolith.Shared.Infrastructure.Commands;
 using ModularMonolith.Shared.Infrastructure.Events;
+using ModularMonolith.Shared.Infrastructure.Exceptions;
 using ModularMonolith.Shared.Infrastructure.Queries;
 using ModularMonolith.Shared.Infrastructure.Time;
 
@@ -14,6 +15,8 @@ public static class Extensions
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
+        services.AddExceptionHandling();
+        
         services.AddEndpointsApiExplorer();
 
         services.AddHttpContextAccessor();
@@ -43,6 +46,8 @@ public static class Extensions
 
     public static WebApplication UseInfrastructure(this WebApplication app)
     {
+        app.UseExceptionHandling();
+        
         app.UseSwagger();
         app.UseReDoc(options =>
         {
