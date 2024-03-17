@@ -7,7 +7,7 @@ internal static class Extensions
 {
     public static IServiceCollection AddQueries(this IServiceCollection services)
     {
-        var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName!.Contains("NetStore"));
+        var assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(x => x.FullName!.Contains("ModularMonolith"));
         
         services.Scan(s =>
             s.FromAssemblies(assemblies)
