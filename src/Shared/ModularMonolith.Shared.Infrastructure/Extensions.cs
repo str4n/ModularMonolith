@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using ModularMonolith.Shared.Abstractions.Time;
 using ModularMonolith.Shared.Infrastructure.Commands;
-using ModularMonolith.Shared.Infrastructure.Events;
 using ModularMonolith.Shared.Infrastructure.Exceptions;
 using ModularMonolith.Shared.Infrastructure.Postgres;
 using ModularMonolith.Shared.Infrastructure.Queries;
@@ -44,8 +43,7 @@ public static class Extensions
         services
             .AddCommands()
             .AddQueries();
-
-        // services.AddEvents();
+        
 
         return services;
     }
