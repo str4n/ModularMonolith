@@ -2,9 +2,13 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using ModularMonolith.Shared.Abstractions.Dispatchers;
 using ModularMonolith.Shared.Abstractions.Time;
+using ModularMonolith.Shared.Infrastructure.Cache;
 using ModularMonolith.Shared.Infrastructure.Commands;
+using ModularMonolith.Shared.Infrastructure.Dispatchers;
 using ModularMonolith.Shared.Infrastructure.Exceptions;
+using ModularMonolith.Shared.Infrastructure.Messaging;
 using ModularMonolith.Shared.Infrastructure.Postgres;
 using ModularMonolith.Shared.Infrastructure.Queries;
 using ModularMonolith.Shared.Infrastructure.Services;
@@ -16,20 +20,6 @@ public static class Extensions
 {
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
     {
-        services.AddExceptionHandling();
-
-        services.ConfigurePostgres(configuration);
-        
-        services.AddEndpointsApiExplorer();
-
-        services.AddHttpContextAccessor();
-
-        services.AddControllers();
-
-        services.AddInitializers();
-        
-        services.AddSingleton<IClock, UtcClock>();
-        
         services.AddSwaggerGen(swagger =>
         {
             swagger.CustomSchemaIds(x => x.FullName);
@@ -40,9 +30,22 @@ public static class Extensions
             });
         });
         
+        services.AddExceptionHandling();
+        services.AddControllers();
+        services.AddEndpointsApiExplorer();
+        services.AddHttpContextAccessor();
+        services.AddInitializers();
+        services.AddCaching(configuration);
+        services.AddMessaging(configuration);
+        
         services
             .AddCommands()
             .AddQueries();
+        
+        services.ConfigurePostgres(configuration);
+        
+        services.AddSingleton<IClock, UtcClock>();
+        services.AddSingleton<IDispatcher, Dispatcher>();
         
 
         return services;
