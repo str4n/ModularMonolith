@@ -39,6 +39,7 @@ public static class Extensions
         services.AddHttpContextAccessor();
         services.AddInitializers();
         services.AddAuth(configuration);
+        services.AddMemoryCache();
         services.AddCaching(configuration);
         services.AddMessaging(configuration);
         
