@@ -3,7 +3,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using ModularMonolith.Shared.Abstractions.Dispatchers;
+using ModularMonolith.Shared.Abstractions.Storage;
 using ModularMonolith.Shared.Abstractions.Time;
+using ModularMonolith.Shared.Infrastructure.Auth;
 using ModularMonolith.Shared.Infrastructure.Cache;
 using ModularMonolith.Shared.Infrastructure.Commands;
 using ModularMonolith.Shared.Infrastructure.Dispatchers;
@@ -12,6 +14,7 @@ using ModularMonolith.Shared.Infrastructure.Messaging;
 using ModularMonolith.Shared.Infrastructure.Postgres;
 using ModularMonolith.Shared.Infrastructure.Queries;
 using ModularMonolith.Shared.Infrastructure.Services;
+using ModularMonolith.Shared.Infrastructure.Storage;
 using ModularMonolith.Shared.Infrastructure.Time;
 
 namespace ModularMonolith.Shared.Infrastructure;
@@ -35,6 +38,7 @@ public static class Extensions
         services.AddEndpointsApiExplorer();
         services.AddHttpContextAccessor();
         services.AddInitializers();
+        services.AddAuth(configuration);
         services.AddCaching(configuration);
         services.AddMessaging(configuration);
         
@@ -45,6 +49,7 @@ public static class Extensions
         services.ConfigurePostgres(configuration);
         
         services.AddSingleton<IClock, UtcClock>();
+        services.AddSingleton<IRequestStorage, InMemoryRequestStorage>();
         services.AddSingleton<IDispatcher, Dispatcher>();
         
 
