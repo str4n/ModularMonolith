@@ -1,4 +1,5 @@
 using ModularMonolith.Bootstrapper;
+using ModularMonolith.Shared.Abstractions.Contexts;
 using ModularMonolith.Shared.Infrastructure;
 using ModularMonolith.Shared.Infrastructure.Logging;
 
@@ -16,6 +17,8 @@ builder.Services
 var app = builder.Build();
 
 app.UseModules();
+
+app.MapGet("/", (IContext context) => "ModularMonolith API");
 
 app.UseInfrastructure();
 

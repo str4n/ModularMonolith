@@ -8,6 +8,7 @@ using ModularMonolith.Shared.Abstractions.Time;
 using ModularMonolith.Shared.Infrastructure.Auth;
 using ModularMonolith.Shared.Infrastructure.Cache;
 using ModularMonolith.Shared.Infrastructure.Commands;
+using ModularMonolith.Shared.Infrastructure.Contexts;
 using ModularMonolith.Shared.Infrastructure.Dispatchers;
 using ModularMonolith.Shared.Infrastructure.Exceptions;
 using ModularMonolith.Shared.Infrastructure.Messaging;
@@ -37,6 +38,7 @@ public static class Extensions
         services.AddControllers();
         services.AddEndpointsApiExplorer();
         services.AddHttpContextAccessor();
+        services.AddContext();
         services.AddInitializers();
         services.AddAuth(configuration);
         services.AddMemoryCache();
