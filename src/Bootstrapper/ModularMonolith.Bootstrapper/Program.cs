@@ -4,7 +4,7 @@ using ModularMonolith.Shared.Infrastructure.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Host.UseLogging();
+builder.Host.UseLogging(builder.Configuration);
 
 // Load modules here
 // ModuleLoader.Load<SampleModule>();
