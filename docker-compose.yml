@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: "rabbitmq:3.11.7-management"
+    container_name: rabbitmq
+    hostname: modular-queue
+    restart: unless-stopped
+    volumes:
+      - ./.containers/queue/data/:/var/lib/rabbitmq
+      - ./.containers/queue/log/:/var/log/rabbitmq
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    ports:
+        - 5672:5672
+        - 15672:15672
+
+  postgres:
+    image: postgres
+    shm_size: '4gb'
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: Admin12!
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres:/var/lib/postgresql/data
+  
+  redis:
+    image: redis:7.2
+    restart: unless-stopped
+    ports:
+      - 6379:6379
+    volumes: 
+      - redis:/data
+  
+  seq:
+    image: datalust/seq
+    container_name: seq
+    restart: unless-stopped
+    environment:
+      - ACCEPT_EULA=Y
+    volumes:
+      - seq:/data
+    ports:
+      - "80:80"
+      - "5341:5341"
+
+volumes:
+  postgres:
+    driver: local
+
+  redis:
+    driver: local
+
+  seq:
+    driver: local
