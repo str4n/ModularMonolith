@@ -18,8 +18,6 @@ var app = builder.Build();
 
 app.UseModules();
 
-app.MapGet("/", (IContext context) => "ModularMonolith API");
-
 app.UseInfrastructure();
 
 app.Run();

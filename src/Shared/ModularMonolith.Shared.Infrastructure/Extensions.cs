@@ -11,6 +11,7 @@ using ModularMonolith.Shared.Infrastructure.Commands;
 using ModularMonolith.Shared.Infrastructure.Contexts;
 using ModularMonolith.Shared.Infrastructure.Dispatchers;
 using ModularMonolith.Shared.Infrastructure.Exceptions;
+using ModularMonolith.Shared.Infrastructure.Logging;
 using ModularMonolith.Shared.Infrastructure.Messaging;
 using ModularMonolith.Shared.Infrastructure.Postgres;
 using ModularMonolith.Shared.Infrastructure.Queries;
@@ -48,6 +49,8 @@ public static class Extensions
         services
             .AddCommands()
             .AddQueries();
+
+        services.AddLoggingDecorators();
         
         services.ConfigurePostgres(configuration);
         
@@ -72,10 +75,9 @@ public static class Extensions
         });
         
         app.UseAuthentication();
-        
         app.UseHttpsRedirection();
+        app.UseLogging();
         app.UseRouting();
-
         app.UseAuthorization();
         
         app.MapControllers();
