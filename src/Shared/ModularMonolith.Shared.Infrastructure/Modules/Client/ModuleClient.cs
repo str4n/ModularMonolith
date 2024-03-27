@@ -19,7 +19,7 @@ internal sealed class ModuleClient : IModuleClient
     public async Task PublishAsync(IMessage message)
     {
         var key = message.GetType().Name;
-        var registrations = _moduleRegistry.GetEndpointRegistrations(key);
+        var registrations = _moduleRegistry.GetMessageRegistrations(key);
 
         var tasks = new List<Task>();
         
@@ -35,5 +35,5 @@ internal sealed class ModuleClient : IModuleClient
     }
 
     private IMessage TranslateType(IMessage message, Type receiverType)
-        => _moduleSerializer.Deserialize(_moduleSerializer.Serialize(message), receiverType) as IMessage;
+        => _moduleSerializer.Deserialize(_moduleSerializer.Serialize(message as object), receiverType) as IMessage;
 }

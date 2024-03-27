@@ -52,7 +52,7 @@ internal static class Extensions
             
             foreach (var type in eventTypes)
             {
-                registry.AddEndpointRegistration(type, @event =>
+                registry.AddMessageRegistration(type, @event =>
                     (Task) eventDispatcherType.GetMethod(nameof(eventDispatcher.PublishAsync))
                         ?.MakeGenericMethod(type)
                         .Invoke(eventDispatcher, new[] { @event }));
@@ -60,7 +60,7 @@ internal static class Extensions
             
             foreach (var type in commandTypes)
             {
-                registry.AddEndpointRegistration(type, command =>
+                registry.AddMessageRegistration(type, command =>
                     (Task) commandDispatcherType.GetMethod(nameof(commandDispatcher.SendAsync))
                         ?.MakeGenericMethod(type)
                         .Invoke(commandDispatcher, new[] { command }));

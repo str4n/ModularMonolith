@@ -4,6 +4,6 @@ namespace ModularMonolith.Shared.Infrastructure.Modules.Registry;
 
 internal interface IModuleRegistry
 {
-    IEnumerable<MessageEndpointRegistration> GetEndpointRegistrations(string key);
-    void AddEndpointRegistration(Type receiverType, Func<IMessage, Task> action);
+    IEnumerable<MessageRegistration> GetMessageRegistrations(string key);
+    void AddMessageRegistration(Type receiverType, Func<IMessage, Task> action);
 }
