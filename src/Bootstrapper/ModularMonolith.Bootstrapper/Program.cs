@@ -12,7 +12,7 @@ builder.Host.UseLogging(builder.Configuration);
 
 builder.Services
     .AddModules(builder.Configuration)
-    .AddInfrastructure(builder.Configuration);
+    .AddInfrastructure(builder.Configuration, ModuleLoader.GetModules());
 
 var app = builder.Build();
 

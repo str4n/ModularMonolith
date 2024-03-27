@@ -46,5 +46,7 @@ public static class ModuleLoader
         return app;
     }
 
+    public static IEnumerable<Module> GetModules() => ModuleRegistry.Select(x => x.Module);
+
     private record ModuleRegistryEntry(string Name, Module Module);
 }
