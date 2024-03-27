@@ -1,5 +1,4 @@
 ﻿using System.Collections.Concurrent;
-using System.Threading.Channels;
 using ModularMonolith.Shared.Abstractions.Messaging;
 
 namespace ModularMonolith.Shared.Infrastructure.Messaging.Channels;

@@ -57,7 +57,7 @@ public static class Extensions
             .AddCommands()
             .AddQueries()
             .AddEvents();
-
+        
         services.AddLoggingDecorators();
         
         services.ConfigurePostgres(configuration);
@@ -90,6 +90,8 @@ public static class Extensions
         app.UseAuthorization();
         
         app.MapControllers();
+
+        app.MapGet("/", () => "Hello");
 
         return app;
     }

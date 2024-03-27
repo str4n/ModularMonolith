@@ -24,14 +24,14 @@ internal static class Extensions
         return services;
     }
 
-    private static void AddModuleRegistry(this IServiceCollection services, IEnumerable<Module> modules)
+    private static IServiceCollection AddModuleRegistry(this IServiceCollection services, IEnumerable<Module> modules)
     {
         var registry = new ModuleRegistry();
 
         var types =
             modules.Select(x => x.GetType().Assembly)
                 .SelectMany(x => x.GetTypes()).ToArray();
-
+        
         // Messages
         
         var eventTypes = types
@@ -46,7 +46,7 @@ internal static class Extensions
         {
             var eventDispatcher = sp.GetRequiredService<IEventDispatcher>();
             var eventDispatcherType = eventDispatcher.GetType();
-
+            
             var commandDispatcher = sp.GetRequiredService<ICommandDispatcher>();
             var commandDispatcherType = commandDispatcher.GetType();
             
@@ -65,9 +65,11 @@ internal static class Extensions
                         ?.MakeGenericMethod(type)
                         .Invoke(commandDispatcher, new[] { command }));
             }
-
+        
             return registry;
         });
+
+        return services;
     }
     
     public static string GetModuleName(this object value)
