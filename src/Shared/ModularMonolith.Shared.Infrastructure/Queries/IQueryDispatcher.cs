@@ -4,5 +4,5 @@ namespace ModularMonolith.Shared.Infrastructure.Queries;
 
 internal interface IQueryDispatcher
 {
-    Task<TResult> SendAsync<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>;
+    Task<TResult> DispatchAsync<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>;
 }

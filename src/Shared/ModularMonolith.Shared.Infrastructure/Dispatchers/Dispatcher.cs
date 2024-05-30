@@ -17,9 +17,9 @@ internal sealed class Dispatcher : IDispatcher
         _queryDispatcher = queryDispatcher;
     }
 
-    public async Task SendAsync<TCommand>(TCommand command) where TCommand : ICommand
-        => await _commandDispatcher.SendAsync(command);
+    public async Task DispatchAsync<TCommand>(TCommand command) where TCommand : ICommand
+        => await _commandDispatcher.DispatchAsync(command);
 
-    public async Task<TResult> SendAsync<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>
-        => await _queryDispatcher.SendAsync<TQuery, TResult>(query);
+    public async Task<TResult> DispatchAsync<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>
+        => await _queryDispatcher.DispatchAsync<TQuery, TResult>(query);
 }

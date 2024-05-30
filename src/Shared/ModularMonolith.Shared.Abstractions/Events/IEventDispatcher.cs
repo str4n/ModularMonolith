@@ -2,5 +2,5 @@
 
 public interface IEventDispatcher
 { 
-    Task PublishAsync<TEvent>(TEvent @event) where TEvent : class, IEvent;
+    Task DispatchAsync<TEvent>(TEvent @event) where TEvent : class, IEvent;
 }

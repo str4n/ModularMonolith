@@ -12,7 +12,7 @@ internal sealed class CommandDispatcher : ICommandDispatcher
         _serviceProvider = serviceProvider;
     }
     
-    public async Task SendAsync<TCommand>(TCommand command) where TCommand : ICommand
+    public async Task DispatchAsync<TCommand>(TCommand command) where TCommand : ICommand
     {
         if (command is null)
         {

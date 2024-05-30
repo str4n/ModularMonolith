@@ -5,6 +5,6 @@ namespace ModularMonolith.Shared.Abstractions.Dispatchers;
 
 public interface IDispatcher
 {
-    Task SendAsync<TCommand>(TCommand command) where TCommand : ICommand;
-    Task<TResult> SendAsync<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>;
+    Task DispatchAsync<TCommand>(TCommand command) where TCommand : ICommand;
+    Task<TResult> DispatchAsync<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>;
 }

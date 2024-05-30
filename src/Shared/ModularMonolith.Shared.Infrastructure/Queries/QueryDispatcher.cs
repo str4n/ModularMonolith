@@ -12,7 +12,7 @@ internal sealed class QueryDispatcher : IQueryDispatcher
         _serviceProvider = serviceProvider;
     }
     
-    public async Task<TResult> SendAsync<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>
+    public async Task<TResult> DispatchAsync<TQuery, TResult>(TQuery query) where TQuery : IQuery<TResult>
     {
         if (query is null)
         {

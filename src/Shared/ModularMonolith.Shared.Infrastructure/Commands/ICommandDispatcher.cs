@@ -4,5 +4,5 @@ namespace ModularMonolith.Shared.Infrastructure.Commands;
 
 internal interface ICommandDispatcher
 {
-    Task SendAsync<TCommand>(TCommand command) where TCommand : ICommand;
+    Task DispatchAsync<TCommand>(TCommand command) where TCommand : ICommand;
 }
