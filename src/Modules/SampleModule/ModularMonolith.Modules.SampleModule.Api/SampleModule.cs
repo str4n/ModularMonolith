@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using ModularMonolith.Modules.SampleModule.Api.Endpoints;
 using ModularMonolith.Modules.SampleModule.Core;
 using ModularMonolith.Shared.Abstractions.Modules;
 
@@ -17,6 +18,6 @@ public sealed class SampleModule : Module
 
     public override void UseModule(WebApplication app)
     {
-        //
+        app.MapHomeEndpoints();
     }
 }
