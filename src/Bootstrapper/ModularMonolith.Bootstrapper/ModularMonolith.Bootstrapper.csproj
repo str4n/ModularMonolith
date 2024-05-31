@@ -6,6 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\Modules\SampleModule\ModularMonolith.Modules.SampleModule.Api\ModularMonolith.Modules.SampleModule.Api.csproj" />
       <ProjectReference Include="..\..\Shared\ModularMonolith.Shared.Infrastructure\ModularMonolith.Shared.Infrastructure.csproj" />
     </ItemGroup>
 

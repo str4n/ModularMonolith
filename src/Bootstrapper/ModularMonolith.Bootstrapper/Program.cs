@@ -1,4 +1,5 @@
 using ModularMonolith.Bootstrapper;
+using ModularMonolith.Modules.SampleModule.Api;
 using ModularMonolith.Shared.Abstractions.Contexts;
 using ModularMonolith.Shared.Infrastructure;
 using ModularMonolith.Shared.Infrastructure.Logging;
@@ -8,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Host.UseLogging(builder.Configuration);
 
 // Load modules here
-// ModuleLoader.Load<SampleModule>();
+ModuleLoader.Load<SampleModule>();
 
 builder.Services
     .AddModules(builder.Configuration)
