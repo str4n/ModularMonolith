@@ -36,7 +36,7 @@ The **modular monolith** approach offers the benefits of code organization and m
   
     ```
 
-  + You can find sample module integration in **Sample Module** branch
+  + You can find sample module integration on [**Sample Module**](https://github.com/str4n/ModularMonolith/tree/SampleModule) branch
 
   
 + Enhance the Shared.Infrastructure project with new infrastructure components as needed for your application's requirements.
