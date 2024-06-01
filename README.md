@@ -25,23 +25,7 @@ The **modular monolith** approach offers the benefits of code organization and m
   + **Logging**: Logging via Serilog integrated with [Seq](https://datalust.co/seq) for centralized logging and visualization.
 + Promotes reusability and centralized management of infrastructure concerns.
 
-# Development
-
-+ You can create modules within the project structure to encapsulate specific functionalities or business domains.
-  + To load module using **Bootstrapper**, just add module dependecy to the **Bootstrapper**, then add following line to the Program.cs file:
-    
-    ```
-
-    ModuleLoader.Load<SampleModule>();
-  
-    ```
-
-  + You can find sample module integration on [**Sample Module**](https://github.com/str4n/ModularMonolith/tree/SampleModule) branch
-
-  
-+ Enhance the Shared.Infrastructure project with new infrastructure components as needed for your application's requirements.
-
-# Running the application:
+# Running the application
 
 ## 1. Prerequisites:
 
@@ -65,3 +49,28 @@ cd ModularMonolith
 docker-compose up -d
 
 ```
+
+## 4. Finally run the application:
+
+```
+
+cd src/Bootstrapper/ModularMonolith.Bootstrapper
+dotnet run
+
+```
+
+# Development
+
++ You can create modules within the project structure to encapsulate specific functionalities or business domains.
+  + To load module using **Bootstrapper**, just add module dependecy to the **Bootstrapper**, then add following line to the Program.cs file:
+    
+    ```
+
+    ModuleLoader.Load<SampleModule>();
+  
+    ```
+
+  + You can find sample module integration on [**Sample Module**](https://github.com/str4n/ModularMonolith/tree/SampleModule) branch
+
+  
++ Enhance the Shared.Infrastructure project with new infrastructure components as needed for your application's requirements.
