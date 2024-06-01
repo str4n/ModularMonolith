@@ -4,7 +4,7 @@
 
 The **modular monolith** approach offers the benefits of code organization and maintainability, while preserving the advantages of a single codebase for easier deployment and management.
 
-# Project Structure:
+# Project Structure
 
 ## Bootstrapper:
 + The heart of the application.
@@ -25,7 +25,7 @@ The **modular monolith** approach offers the benefits of code organization and m
   + **Logging**: Logging via Serilog integrated with [Seq](https://datalust.co/seq) for centralized logging and visualization.
 + Promotes reusability and centralized management of infrastructure concerns.
 
-# Development:
+# Development
 
 + You can create modules within the project structure to encapsulate specific functionalities or business domains.
   + To load module using **Bootstrapper**, just add module dependecy to the **Bootstrapper**, then add following line to the Program.cs file:
@@ -57,7 +57,7 @@ git clone https://github.com/str4n/ModularMonolith.git
 
 ```
 
-## 3. Start the infrastructure (Postgres, Redis, Seq) using [Docker](https://www.docker.com/).
+## 3. Start the infrastructure (Postgres, Redis, Seq) using [Docker](https://www.docker.com/):
 
 ```
 
